@@ -1,6 +1,6 @@
-package com.cristianProyectoAD.prd_rex.servicio_comunicacion;
+package com.cristianProyectoAD.prd_rex.registrolibros.servicio_comunicacion;
 
-import com.cristianProyectoAD.prd_rex.dto.LibroDTO;
+import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

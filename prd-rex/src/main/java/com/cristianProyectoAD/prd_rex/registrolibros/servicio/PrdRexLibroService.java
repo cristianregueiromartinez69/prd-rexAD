@@ -1,8 +1,8 @@
-package com.cristianProyectoAD.prd_rex.servicio;
+package com.cristianProyectoAD.prd_rex.registrolibros.servicio;
 
-import com.cristianProyectoAD.prd_rex.dto.LibroDTO;
-import com.cristianProyectoAD.prd_rex.servicio_comunicacion.MongoPrdClientService;
-import com.cristianProyectoAD.prd_rex.servicio_comunicacion.PostgresSQLPrdClientService;
+import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroDTO;
+import com.cristianProyectoAD.prd_rex.registrolibros.servicio_comunicacion.MongoPrdClientService;
+import com.cristianProyectoAD.prd_rex.registrolibros.servicio_comunicacion.PostgresSQLPrdClientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,4 +1,4 @@
-package com.cristianProyectoAD.prd_rex.dto;
+package com.cristianProyectoAD.prd_rex.registrolibros.dto;
 
 
 import jakarta.validation.constraints.NotBlank;
