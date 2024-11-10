@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "nonrelational-prd-query", url="http://localhost:8083")
 public interface MongoPrdClientService {
 
-    @PostMapping("/libros/guardar")
+    @PostMapping("/nonrelational-prd-query/libros/guardar")
     ResponseEntity<String> saveBooksMongo(@RequestBody LibroDTO libroDTO);
 }
