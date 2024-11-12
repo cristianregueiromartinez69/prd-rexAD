@@ -12,6 +12,5 @@ public class PrdRexApplication {
 		SpringApplication.run(PrdRexApplication.class, args);
 	}
 
-	//TODO: crear logica para recibir datos de con-external y mandarlo a bases de datos y ficheros
 
 }
