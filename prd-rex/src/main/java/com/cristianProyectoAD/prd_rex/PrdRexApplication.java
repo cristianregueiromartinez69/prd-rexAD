@@ -12,6 +12,5 @@ public class PrdRexApplication {
 		SpringApplication.run(PrdRexApplication.class, args);
 	}
 
-	//TODO: crear logica para mandar datos a un fichero xml
 
 }
