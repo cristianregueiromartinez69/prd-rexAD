@@ -1,6 +1,7 @@
 package com.cristianProyectoAD.prd_rex.registrolibros.dto;
 
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
@@ -16,6 +17,7 @@ public class LibroDTO {
      * La anotación indica que no pueden estar en blanco al mandarlo
      */
     @NotBlank
+    @JacksonXmlProperty(localName = "isbn")
     private String isbn;
     @NotBlank
     private String autor;
