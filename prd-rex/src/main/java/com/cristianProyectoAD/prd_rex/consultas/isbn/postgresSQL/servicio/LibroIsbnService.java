@@ -20,7 +20,7 @@ public class LibroIsbnService {
         ResponseEntity<LibroDTO> responsePostgres = postgresSQLPrdClientService.getLibroByIsbn(isbn);
 
         if(responsePostgres.getStatusCode() == HttpStatus.NOT_FOUND) {
-            return new ResponseEntity<>(responsePostgres.getBody(), HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
         return responsePostgres;
     }
