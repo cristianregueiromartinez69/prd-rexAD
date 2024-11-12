@@ -1,6 +1,7 @@
 package com.cristianProyectoAD.prd_rex.registrolibros.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import jakarta.validation.constraints.NotBlank;
 
@@ -20,12 +21,18 @@ public class LibroDTO {
     @JacksonXmlProperty(localName = "isbn")
     private String isbn;
     @NotBlank
+    @JacksonXmlProperty(localName = "autor")
     private String autor;
     @NotBlank
+    @JacksonXmlProperty(localName = "nombre")
     private String nombre;
     @NotBlank
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @JacksonXmlProperty(localName = "fechaLectura")
     private LocalDate fechaLectura;
     @NotBlank
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @JacksonXmlProperty(localName = "fechaRegistro")
     private LocalDate fechaRegistro;
 
     /**
