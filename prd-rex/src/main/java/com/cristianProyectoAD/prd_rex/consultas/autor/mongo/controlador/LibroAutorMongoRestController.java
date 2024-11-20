@@ -33,7 +33,7 @@ public class LibroAutorMongoRestController {
      * @return ResponseEntity con la lista de libros del autor si se encuentran.
      */
     @GetMapping("autor{autor}")
-    public ResponseEntity<List<LibroDTO>> getLibroPostgresByAutor(@PathVariable String autor) {
+    public ResponseEntity<List<LibroDTO>> getLibrosMongoByAutor(@PathVariable String autor) {
         return libroAutorServiceMongo.getLibroByAutor(autor);
     }
 }
