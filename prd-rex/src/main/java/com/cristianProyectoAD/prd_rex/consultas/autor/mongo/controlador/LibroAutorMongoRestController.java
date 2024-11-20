@@ -1,0 +1,11 @@
+package com.cristianProyectoAD.prd_rex.consultas.autor.mongo.controlador;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/prd-rex/libros/consulta/mongoDB/")
+public class LibroAutorMongoRestController {
+
+
+}
