@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
+
 /**
  * Cliente Feign para interactuar con el servicio de consulta y almacenamiento de libros en una base de datos no relacional (MongoDB).
  * Utiliza la URL base <a href="http://localhost:8083">...</a> para la comunicación con el servicio.
@@ -35,4 +37,7 @@ public interface MongoPrdClientService {
      */
     @GetMapping("/nonrelational-prd-query/libros/consultas/isbn{isbn}")
     ResponseEntity<LibroDTO> getLibroByIsbn(@PathVariable("isbn") String isbn);
+
+    @GetMapping("/nonrelational-prd-query/libros/consultas/autor{autor}")
+    ResponseEntity<List<LibroDTO>> getLibroByAutor(@PathVariable("autor") String autor);
 }
