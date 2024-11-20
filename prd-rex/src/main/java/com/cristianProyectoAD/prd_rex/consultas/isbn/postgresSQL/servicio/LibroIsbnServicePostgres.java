@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
-public class LibroIsbnService {
+public class LibroIsbnServicePostgres {
 
     private final PostgresSQLPrdClientService postgresSQLPrdClientService;
 
-    public LibroIsbnService(PostgresSQLPrdClientService postgresSQLPrdClientService) {
+    public LibroIsbnServicePostgres(PostgresSQLPrdClientService postgresSQLPrdClientService) {
         this.postgresSQLPrdClientService = postgresSQLPrdClientService;
     }
 
-    public ResponseEntity<LibroDTO> getLibroByIsbn(@RequestParam String isbn) {
+    public ResponseEntity<LibroDTO> getLibroByIsbnPostgres(@RequestParam String isbn) {
         ResponseEntity<LibroDTO> responsePostgres = postgresSQLPrdClientService.getLibroByIsbn(isbn);
 
         if(responsePostgres.getStatusCode() == HttpStatus.NOT_FOUND) {

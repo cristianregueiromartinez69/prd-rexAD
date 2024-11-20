@@ -3,6 +3,8 @@ package com.cristianProyectoAD.prd_rex.registrolibros.servicio_comunicacion;
 import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -21,4 +23,7 @@ public interface MongoPrdClientService {
      */
     @PostMapping("/nonrelational-prd-query/libros/guardar")
     ResponseEntity<String> saveBooksMongo(@RequestBody LibroDTO libroDTO);
+
+    @GetMapping("/nonrelational-prd-query/libros/consultas/isbn{isbn}")
+    ResponseEntity<LibroDTO> getLibroByIsbn(@PathVariable("isbn") String isbn);
 }
