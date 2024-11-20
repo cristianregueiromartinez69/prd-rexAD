@@ -9,21 +9,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 /**
- * Servicio de comunicacion con el microservicio de mongo para mandar registro de libros
+ * Cliente Feign para interactuar con el servicio de consulta y almacenamiento de libros en una base de datos no relacional (MongoDB).
+ * Utiliza la URL base <a href="http://localhost:8083">...</a> para la comunicación con el servicio.
  * @author cristian
  * @version 1.0
  */
 @FeignClient(name = "nonrelational-prd-query", url="http://localhost:8083")
 public interface MongoPrdClientService {
 
+
     /**
-     * Metodo para mandar el libro a la base de datos de mongo
-     * @param libroDTO el libro
-     * @return un mensage indicando si se envió correctamente o no
+     * Guarda un libro en la base de datos MongoDB.
+     *
+     * @param libroDTO Objeto que contiene la información del libro a guardar.
+     * @return ResponseEntity con el resultado de la operación (mensaje de éxito o error).
      */
     @PostMapping("/nonrelational-prd-query/libros/guardar")
     ResponseEntity<String> saveBooksMongo(@RequestBody LibroDTO libroDTO);
 
+    /**
+     * Obtiene un libro desde la base de datos MongoDB utilizando su ISBN.
+     *
+     * @param isbn El ISBN del libro a consultar.
+     * @return ResponseEntity que contiene el libro encontrado en formato LibroDTO o un código de error si no se encuentra el libro.
+     */
     @GetMapping("/nonrelational-prd-query/libros/consultas/isbn{isbn}")
     ResponseEntity<LibroDTO> getLibroByIsbn(@PathVariable("isbn") String isbn);
 }
