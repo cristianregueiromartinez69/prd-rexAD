@@ -1,0 +1,109 @@
+<Libros>
+  <libro>
+    <libro>
+      <isbn>978-000-000-001</isbn>
+      <autor>Elena navarro</autor>
+      <nombre>El inicio de la aventura</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-002</isbn>
+      <autor>Elena navarro</autor>
+      <nombre>La sombra del pasado</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-003</isbn>
+      <autor>Elena navarro</autor>
+      <nombre>El enigma de la torre</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-004</isbn>
+      <autor>Donald lawrence</autor>
+      <nombre>Secretos del océano</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-005</isbn>
+      <autor>Donald lawrence</autor>
+      <nombre>el viaje inesperado</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-006</isbn>
+      <autor>Donald lawrence</autor>
+      <nombre>La llave perdida</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-007</isbn>
+      <autor>Alvaro magallanes</autor>
+      <nombre>El pacto misterioso</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-008</isbn>
+      <autor>Alvaro magallanes</autor>
+      <nombre>El guardián de los sueños</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-009</isbn>
+      <autor>Raquel barros</autor>
+      <nombre>La fortaleza olvidada</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-010</isbn>
+      <autor>Raquel barros</autor>
+      <nombre>El último horizonte</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-011</isbn>
+      <autor>Raquel barros</autor>
+      <nombre>Más allá de las estrellas</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-012</isbn>
+      <autor>Dimitri stoickov</autor>
+      <nombre>El susurro del bosque</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-013</isbn>
+      <autor>Dimitri stoickov</autor>
+      <nombre>La ciudad sumergida</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-014</isbn>
+      <autor>Dimitri stoickov</autor>
+      <nombre>El caballero sin nombre</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+    <libro>
+      <isbn>978-000-000-015</isbn>
+      <autor>Alexander kirk</autor>
+      <nombre>El oráculo de fuego</nombre>
+      <fechaLectura>2024-11-12</fechaLectura>
+      <fechaRegistro>2024-11-12</fechaRegistro>
+    </libro>
+  </libro>
+</Libros>
