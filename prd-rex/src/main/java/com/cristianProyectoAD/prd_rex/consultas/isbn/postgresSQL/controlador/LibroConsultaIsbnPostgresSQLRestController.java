@@ -6,12 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/prd-rex/libros/consulta/postresSQL")
-public class LibroConsultaIsbnRestController {
+@RequestMapping("/prd-rex/libros/consulta/postresSQL/")
+public class LibroConsultaIsbnPostgresSQLRestController {
 
     private final LibroIsbnServicePostgres libroIsbnService;
 
-    public LibroConsultaIsbnRestController(LibroIsbnServicePostgres libroIsbnService) {
+    public LibroConsultaIsbnPostgresSQLRestController(LibroIsbnServicePostgres libroIsbnService) {
         this.libroIsbnService = libroIsbnService;
     }
 
