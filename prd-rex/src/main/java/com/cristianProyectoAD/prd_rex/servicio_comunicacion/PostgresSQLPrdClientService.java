@@ -5,6 +5,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Servicio de comunicacion con el microservicio de postgresSQL para mandar registro de libros
  * @author cristian
@@ -22,4 +24,7 @@ public interface PostgresSQLPrdClientService {
 
     @GetMapping("/relational-prd-query/libros/consultas/isbn{isbn}")
     ResponseEntity<LibroDTO> getLibroByIsbn(@PathVariable("isbn") String isbn);
+
+    @GetMapping("/relational-prd-query/libros/consultas/autor{autor}")
+    ResponseEntity<List<LibroDTO>> getLibroByAutor(@PathVariable("autor") String autor);
 }
