@@ -10,11 +10,23 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
+/**
+ * Servicio encargado de gestionar la lectura de libros desde un archivo XML y la búsqueda de libros por ISBN.
+ * Utiliza `XmlMapper` para deserializar el archivo XML en objetos Java.
+ * @author cristian
+ * @version 1.0
+ */
 @Service
 public class LibroIsbnServiceFicheros {
 
+    /**
+     * Lee un archivo XML y convierte su contenido en una lista de objetos `LibroDTO`.
+     *
+     * @param path Ruta del archivo XML.
+     * @return Lista de objetos `LibroDTO` deserializados desde el archivo XML.
+     * @throws IOException Si ocurre un error durante la lectura del archivo.
+     */
     public List<LibroDTO> readXmlFile(String path) throws IOException {
         XmlMapper xmlMapper = new XmlMapper();
         xmlMapper.registerModule(new JavaTimeModule());
@@ -27,6 +39,15 @@ public class LibroIsbnServiceFicheros {
         return List.of();
     }
 
+    /**
+     * Obtiene un libro a partir de su ISBN buscando en un archivo XML.
+     *
+     * @param isbn El ISBN del libro que se desea consultar.
+     * @param path Ruta del archivo XML.
+     * @return El objeto `LibroDTO` correspondiente al ISBN.
+     * @throws IOException Si ocurre un error durante la lectura del archivo.
+     * @throws LibroNotFoundException Si no se encuentra el libro con el ISBN especificado.
+     */
     public LibroDTO getLibroByIsbn(String isbn, String path) throws IOException {
         List<LibroDTO> libros = readXmlFile(path);
 
