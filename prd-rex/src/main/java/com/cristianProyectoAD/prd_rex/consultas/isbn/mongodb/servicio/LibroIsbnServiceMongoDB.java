@@ -1,8 +1,7 @@
 package com.cristianProyectoAD.prd_rex.consultas.isbn.mongodb.servicio;
 
 import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroDTO;
-import com.cristianProyectoAD.prd_rex.registrolibros.servicio_comunicacion.MongoPrdClientService;
-import com.cristianProyectoAD.prd_rex.registrolibros.servicio_comunicacion.PostgresSQLPrdClientService;
+import com.cristianProyectoAD.prd_rex.servicio_comunicacion.MongoPrdClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

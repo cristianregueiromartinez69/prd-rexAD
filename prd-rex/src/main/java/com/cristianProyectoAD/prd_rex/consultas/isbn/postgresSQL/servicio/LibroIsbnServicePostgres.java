@@ -1,7 +1,7 @@
 package com.cristianProyectoAD.prd_rex.consultas.isbn.postgresSQL.servicio;
 
 import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroDTO;
-import com.cristianProyectoAD.prd_rex.registrolibros.servicio_comunicacion.PostgresSQLPrdClientService;
+import com.cristianProyectoAD.prd_rex.servicio_comunicacion.PostgresSQLPrdClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

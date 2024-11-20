@@ -1,4 +1,4 @@
-package com.cristianProyectoAD.prd_rex.registrolibros.servicio_comunicacion;
+package com.cristianProyectoAD.prd_rex.servicio_comunicacion;
 
 import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroDTO;
 import org.springframework.cloud.openfeign.FeignClient;
