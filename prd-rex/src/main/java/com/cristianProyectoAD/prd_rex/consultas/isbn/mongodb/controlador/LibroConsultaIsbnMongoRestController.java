@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/nonrelational-prd-query/libros/consultas/")
+@RequestMapping("/prd-rex/libros/consulta/mongoDB/")
 public class LibroConsultaIsbnMongoRestController {
 
     private final LibroIsbnServiceMongoDB libroIsbnService;
@@ -16,7 +16,7 @@ public class LibroConsultaIsbnMongoRestController {
         this.libroIsbnService = libroIsbnService;
     }
 
-    @GetMapping("/isbn/{isbn}")
+    @GetMapping("isbn/{isbn}")
     public ResponseEntity<LibroDTO> getLibroByIsbn(@PathVariable("isbn") String isbn) {
         return libroIsbnService.getLibroByIsbnMongo(isbn);
     }
