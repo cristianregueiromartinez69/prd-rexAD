@@ -1,15 +1,9 @@
 package com.cristianProyectoAD.prd_rex.registrolibros.xml;
 
 import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroDTO;
-import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroRegistroDTOWrapper;
-import com.cristianProyectoAD.prd_rex.registrolibros.excepcion.DuplicateIsbnException;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.stereotype.Component;
 
 import javax.xml.stream.*;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -34,17 +28,13 @@ public class LibrosXMLSave {
      * @param filePath          la ruta donde estará el archivo
      * @throws IOException lanzamos una excepcion que será recogida en el controlador
      */
-    public void guardarLibroEnXML(LibroDTO librosRegistroDTO, String filePath) throws IOException, XMLStreamException, DuplicateIsbnException {
+    public void guardarLibroEnXML(LibroDTO librosRegistroDTO, String filePath) throws IOException, XMLStreamException{
 
         List<LibroDTO> libroDTOList = readXmlFile(filePath);
         if(checkIfISbnISRepeat(librosRegistroDTO, libroDTOList)) {
-            throw new DuplicateIsbnException("Este isbn ya existe, introduce otro");
-        }
-        else{
             libroDTOList.add(librosRegistroDTO);
             writeXmlFile(libroDTOList, filePath);
         }
-
     }
 
     public List<LibroDTO> readXmlFile(String path) throws IOException, XMLStreamException {
