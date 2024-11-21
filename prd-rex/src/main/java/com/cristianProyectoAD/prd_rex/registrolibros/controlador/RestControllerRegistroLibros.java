@@ -1,6 +1,7 @@
 package com.cristianProyectoAD.prd_rex.registrolibros.controlador;
 
 import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroDTO;
+import com.cristianProyectoAD.prd_rex.registrolibros.excepcion.DuplicateIsbnException;
 import com.cristianProyectoAD.prd_rex.registrolibros.servicio.PrdRexLibroService;
 import com.cristianProyectoAD.prd_rex.registrolibros.xml.LibrosXMLSave;
 import org.springframework.http.ResponseEntity;
@@ -45,6 +46,8 @@ public class RestControllerRegistroLibros {
             librosXMLSave.guardarLibroEnXML(libroDTO, "C:/Users/crm23/Downloads/prd-rex/prd-rex/libros.xml");
         } catch (IOException | XMLStreamException e) {
             return ResponseEntity.badRequest().body("no se pudo guardar el libro en el sistema de ficheros");
+        }catch(DuplicateIsbnException duEx){
+            return ResponseEntity.badRequest().body("el libro ya existe");
         }
         return prdRexLibroService.registroLibrosBases(libroDTO);
     }

@@ -40,8 +40,11 @@ public class LibrosXMLSave {
         if(checkIfISbnISRepeat(librosRegistroDTO, libroDTOList)) {
             throw new DuplicateIsbnException("Este isbn ya existe, introduce otro");
         }
-        libroDTOList.add(librosRegistroDTO);
-        writeXmlFile(libroDTOList, filePath);
+        else{
+            libroDTOList.add(librosRegistroDTO);
+            writeXmlFile(libroDTOList, filePath);
+        }
+
     }
 
     public List<LibroDTO> readXmlFile(String path) throws IOException, XMLStreamException {
