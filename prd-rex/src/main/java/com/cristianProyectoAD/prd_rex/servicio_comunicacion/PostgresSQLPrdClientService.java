@@ -42,4 +42,9 @@ public interface PostgresSQLPrdClientService {
      */
     @GetMapping("/relational-prd-query/libros/consultas/autor{autor}")
     ResponseEntity<List<LibroDTO>> getLibroByAutor(@PathVariable("autor") String autor);
+
+    @GetMapping("/relational-prd-query/libros/consultas/nombre{nombre}")
+    ResponseEntity<List<LibroDTO>> getLibroByNombre(@PathVariable("nombre") String nombre);
+
+
 }

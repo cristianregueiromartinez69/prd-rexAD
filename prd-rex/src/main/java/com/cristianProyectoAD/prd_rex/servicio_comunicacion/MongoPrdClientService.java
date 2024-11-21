@@ -40,4 +40,9 @@ public interface MongoPrdClientService {
 
     @GetMapping("/nonrelational-prd-query/libros/consultas/autor{autor}")
     ResponseEntity<List<LibroDTO>> getLibroByAutor(@PathVariable("autor") String autor);
+
+    @GetMapping("/nonrelational-prd-query/libros/consultas/nombre{nombre}")
+    ResponseEntity<List<LibroDTO>> getLibroByNombre(@PathVariable("nombre") String nombre);
+
+
 }
