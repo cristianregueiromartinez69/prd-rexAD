@@ -2,6 +2,7 @@ package com.cristianProyectoAD.prd_rex.registrolibros.xml;
 
 import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroDTO;
 import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroRegistroDTOWrapper;
+import com.cristianProyectoAD.prd_rex.registrolibros.excepcion.DuplicateIsbnException;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -33,9 +34,12 @@ public class LibrosXMLSave {
      * @param filePath          la ruta donde estará el archivo
      * @throws IOException lanzamos una excepcion que será recogida en el controlador
      */
-    public void guardarLibroEnXML(LibroDTO librosRegistroDTO, String filePath) throws IOException, XMLStreamException {
+    public void guardarLibroEnXML(LibroDTO librosRegistroDTO, String filePath) throws IOException, XMLStreamException, DuplicateIsbnException {
 
         List<LibroDTO> libroDTOList = readXmlFile(filePath);
+        if(checkIfISbnISRepeat(librosRegistroDTO, libroDTOList)) {
+            throw new DuplicateIsbnException("Este isbn ya existe, introduce otro");
+        }
         libroDTOList.add(librosRegistroDTO);
         writeXmlFile(libroDTOList, filePath);
     }
