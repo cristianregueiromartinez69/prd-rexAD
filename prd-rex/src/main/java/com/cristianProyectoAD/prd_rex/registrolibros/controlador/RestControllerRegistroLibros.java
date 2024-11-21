@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
 
 /**
@@ -42,7 +43,7 @@ public class RestControllerRegistroLibros {
     public ResponseEntity<String> registroLibrosBasesDatos(@RequestBody LibroDTO libroDTO){
         try{
             librosXMLSave.guardarLibroEnXML(libroDTO, "C:/Users/crm23/Downloads/prd-rex/prd-rex/libros.xml");
-        } catch (IOException e) {
+        } catch (IOException | XMLStreamException e) {
             return ResponseEntity.badRequest().body("no se pudo guardar el libro en el sistema de ficheros");
         }
         return prdRexLibroService.registroLibrosBases(libroDTO);
