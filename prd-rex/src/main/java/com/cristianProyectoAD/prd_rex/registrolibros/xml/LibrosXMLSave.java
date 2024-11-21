@@ -138,5 +138,14 @@ public class LibrosXMLSave {
         xmlStreamWriter.close();
     }
 
+    public boolean checkIfISbnISRepeat(LibroDTO libroDTO, List<LibroDTO> libroDTOList){
+        for(LibroDTO libroDTO1 : libroDTOList){
+            if(libroDTO1.getIsbn().equals(libroDTO.getIsbn())){
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 }
