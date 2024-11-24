@@ -1,14 +1,9 @@
 package com.cristianProyectoAD.prd_rex.registrolibros.xml;
 
 import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroDTO;
-import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroRegistroDTOWrapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.stereotype.Component;
 
 import javax.xml.stream.*;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -33,11 +28,13 @@ public class LibrosXMLSave {
      * @param filePath          la ruta donde estará el archivo
      * @throws IOException lanzamos una excepcion que será recogida en el controlador
      */
-    public void guardarLibroEnXML(LibroDTO librosRegistroDTO, String filePath) throws IOException, XMLStreamException {
+    public void guardarLibroEnXML(LibroDTO librosRegistroDTO, String filePath) throws IOException, XMLStreamException{
 
         List<LibroDTO> libroDTOList = readXmlFile(filePath);
-        libroDTOList.add(librosRegistroDTO);
-        writeXmlFile(libroDTOList, filePath);
+        if(checkIfISbnISRepeat(librosRegistroDTO, libroDTOList)) {
+            libroDTOList.add(librosRegistroDTO);
+            writeXmlFile(libroDTOList, filePath);
+        }
     }
 
     public List<LibroDTO> readXmlFile(String path) throws IOException, XMLStreamException {
@@ -136,6 +133,15 @@ public class LibrosXMLSave {
         xmlStreamWriter.writeEndElement();
         xmlStreamWriter.writeEndDocument();
         xmlStreamWriter.close();
+    }
+
+    public boolean checkIfISbnISRepeat(LibroDTO libroDTO, List<LibroDTO> libroDTOList){
+        for(LibroDTO libroDTO1 : libroDTOList){
+            if(libroDTO1.getIsbn().equals(libroDTO.getIsbn())){
+                return false;
+            }
+        }
+        return true;
     }
 
 

@@ -143,4 +143,13 @@
 <fechaLectura>2024-11-21</fechaLectura>
 <fechaRegistro>2024-11-21</fechaRegistro>
 </libro>
+
+<libro>
+<isbn>978-000-000-019</isbn>
+<autor>Pedro sánchez</autor>
+<nombre>Como arruinar un país</nombre>
+<fechaLectura>2024-11-24</fechaLectura>
+<fechaRegistro>2024-11-24</fechaRegistro>
+</libro>
+
 </libros>

@@ -34,11 +34,6 @@ public class LibroIsbnServiceMongoDB {
      * @return ResponseEntity con los datos del libro si se encuentra.
      */
     public ResponseEntity<LibroDTO> getLibroByIsbnMongo(@RequestParam String isbn) {
-        ResponseEntity<LibroDTO> responsePostgres = mongoPrdClientService.getLibroByIsbn(isbn);
-
-        if(responsePostgres.getStatusCode() == HttpStatus.NOT_FOUND) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
-        return responsePostgres;
+        return mongoPrdClientService.getLibroByIsbn(isbn);
     }
 }
