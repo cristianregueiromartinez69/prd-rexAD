@@ -5,6 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -45,6 +46,11 @@ public interface PostgresSQLPrdClientService {
 
     @GetMapping("/relational-prd-query/libros/consultas/nombre{nombre}")
     ResponseEntity<List<LibroDTO>> getLibroByNombre(@PathVariable("nombre") String nombre);
+
+    @GetMapping("/relational-prd-query/libros/consultas/fecharegistro{fechaInicio}/{fechaFin}")
+    ResponseEntity<List<LibroDTO>> getLibroByFechaRegistro(@PathVariable("fechaInicio")LocalDate fechaInicio, @PathVariable("fechaFin")LocalDate fechaFin);
+
+
 
 
 }
