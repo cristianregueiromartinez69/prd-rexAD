@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/prd-rex/libros/consulta/postgresSQL/fecharegistro")
+@RequestMapping("/prd-rex/libros/consulta/postgresSQL")
 public class LibroFechaRegistroPostgresRestController {
 
     private final LibroFechaRegistroServicePostgres libroFechaRegistroServicePostgres;
@@ -21,7 +21,7 @@ public class LibroFechaRegistroPostgresRestController {
         this.libroFechaRegistroServicePostgres = libroFechaRegistroServicePostgres;
     }
 
-    @GetMapping("/{fechaInicio}/{fechaFin}")
+    @GetMapping("/fecharegistro{fechaInicio}/{fechaFin}")
     public ResponseEntity<List<LibroDTO>> getLibrosByFechaRegistroPostgres(@PathVariable("fechaInicio") LocalDate fechaInicio, @PathVariable("fechaFin") LocalDate fechaFin) {
         return libroFechaRegistroServicePostgres.getLibrosByFechaRegistroPostgres(fechaInicio, fechaFin);
     }
