@@ -47,8 +47,8 @@ public interface PostgresSQLPrdClientService {
     @GetMapping("/relational-prd-query/libros/consultas/nombre{nombre}")
     ResponseEntity<List<LibroDTO>> getLibroByNombre(@PathVariable("nombre") String nombre);
 
-    @GetMapping("/relational-prd-query/libros/consultas/fecharegistro/{fechaInicio}/{fechaFin}")
-    ResponseEntity<List<LibroDTO>> getLibroByFechaRegistro(@PathVariable("fechaInicio")LocalDate fechaInicio, @PathVariable("fechaFin")LocalDate fechaFin);
+    @GetMapping("/relational-prd-query/libros/consultas/fecharegistro")
+    ResponseEntity<List<LibroDTO>> getLibroByFechaRegistro(@RequestParam("fechaInicio")LocalDate fechaInicio, @RequestParam("fechaFin")LocalDate fechaFin);
 
 
 

@@ -3,10 +3,7 @@ package com.cristianProyectoAD.prd_rex.consultas.fecharegistro.postgres.controla
 import com.cristianProyectoAD.prd_rex.consultas.fecharegistro.postgres.servicio.LibroFechaRegistroServicePostgres;
 import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,8 +18,8 @@ public class LibroFechaRegistroPostgresRestController {
         this.libroFechaRegistroServicePostgres = libroFechaRegistroServicePostgres;
     }
 
-    @GetMapping("/fecharegistro/{fechaInicio}/{fechaFin}")
-    public ResponseEntity<List<LibroDTO>> getLibrosByFechaRegistroPostgres(@PathVariable("fechaInicio") LocalDate fechaInicio, @PathVariable("fechaFin") LocalDate fechaFin) {
+    @GetMapping("/fecharegistro")
+    public ResponseEntity<List<LibroDTO>> getLibrosByFechaRegistroPostgres(@RequestParam LocalDate fechaInicio, @RequestParam LocalDate fechaFin) {
         return libroFechaRegistroServicePostgres.getLibrosByFechaRegistroPostgres(fechaInicio, fechaFin);
     }
 }
