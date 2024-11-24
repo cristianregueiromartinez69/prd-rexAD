@@ -17,4 +17,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleNotFound(FeignException.NotFound ex) {
         return ResponseEntity.status(404).body("Error: Recurso no encontrado.");
     }
+
+
 }
