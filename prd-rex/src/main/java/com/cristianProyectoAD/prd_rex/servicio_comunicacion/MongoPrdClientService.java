@@ -3,11 +3,9 @@ package com.cristianProyectoAD.prd_rex.servicio_comunicacion;
 import com.cristianProyectoAD.prd_rex.registrolibros.dto.LibroDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -43,6 +41,9 @@ public interface MongoPrdClientService {
 
     @GetMapping("/nonrelational-prd-query/libros/consultas/nombre{nombre}")
     ResponseEntity<List<LibroDTO>> getLibroByNombre(@PathVariable("nombre") String nombre);
+
+    @GetMapping("/nonrelational-prd-query/libros/consultas/fecharegistro")
+    ResponseEntity<List<LibroDTO>> getLibroByFechaRegistro(@RequestParam("fechaInicio") LocalDate fechaInicio, @RequestParam("fechaFin") LocalDate fechaFin);
 
 
 }
