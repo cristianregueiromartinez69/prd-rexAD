@@ -5,6 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -43,8 +44,26 @@ public interface PostgresSQLPrdClientService {
     @GetMapping("/relational-prd-query/libros/consultas/autor{autor}")
     ResponseEntity<List<LibroDTO>> getLibroByAutor(@PathVariable("autor") String autor);
 
+    /**
+     * Obtiene una lista de libros desde la base de datos relacional utilizando el nombre del libro.
+     *
+     * @param nombre El nombre del libro a consultar.
+     * @return ResponseEntity que contiene una lista de libros encontrados en formato LibroDTO o un código de error si no se encuentran libros.
+     */
     @GetMapping("/relational-prd-query/libros/consultas/nombre{nombre}")
     ResponseEntity<List<LibroDTO>> getLibroByNombre(@PathVariable("nombre") String nombre);
+
+    /**
+     * Obtiene una lista de libros desde la base de datos relacional dentro de un rango de fechas de registro.
+     *
+     * @param fechaInicio La fecha de inicio del rango de búsqueda.
+     * @param fechaFin La fecha de fin del rango de búsqueda.
+     * @return ResponseEntity que contiene una lista de libros encontrados en formato LibroDTO o un código de error si no se encuentran libros en el rango de fechas.
+     */
+    @GetMapping("/relational-prd-query/libros/consultas/fecharegistro")
+    ResponseEntity<List<LibroDTO>> getLibroByFechaRegistro(@RequestParam("fechaInicio")LocalDate fechaInicio, @RequestParam("fechaFin")LocalDate fechaFin);
+
+
 
 
 }
