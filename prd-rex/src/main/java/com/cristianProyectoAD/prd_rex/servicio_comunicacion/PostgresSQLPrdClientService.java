@@ -63,6 +63,16 @@ public interface PostgresSQLPrdClientService {
     @GetMapping("/relational-prd-query/libros/consultas/fecharegistro")
     ResponseEntity<List<LibroDTO>> getLibroByFechaRegistro(@RequestParam("fechaInicio")LocalDate fechaInicio, @RequestParam("fechaFin")LocalDate fechaFin);
 
+    /**
+     * Obtiene una lista de libros desde la base de datos relacional dentro de un rango de fechas de lectura.
+     *
+     * @param fechaInicio La fecha de inicio del rango de búsqueda.
+     * @param fechaFin La fecha de fin del rango de búsqueda.
+     * @return ResponseEntity que contiene una lista de libros encontrados en formato LibroDTO o un código de error si no se encuentran libros en el rango de fechas.
+     */
+    @GetMapping("/relational-prd-query/libros/consultas/fecharegistro")
+    ResponseEntity<List<LibroDTO>> getLibroByFechaLectura(@RequestParam("fechaInicio")LocalDate fechaInicio, @RequestParam("fechaFin")LocalDate fechaFin);
+
 
 
 
