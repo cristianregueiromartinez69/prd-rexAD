@@ -12,6 +12,6 @@ public class PrdRexApplication {
 		SpringApplication.run(PrdRexApplication.class, args);
 	}
 
-
+	//TODO: prparar a prd-rex para consultas por fecha de lectura
 
 }
