@@ -70,7 +70,7 @@ public interface PostgresSQLPrdClientService {
      * @param fechaFin La fecha de fin del rango de búsqueda.
      * @return ResponseEntity que contiene una lista de libros encontrados en formato LibroDTO o un código de error si no se encuentran libros en el rango de fechas.
      */
-    @GetMapping("/relational-prd-query/libros/consultas/fecharegistro")
+    @GetMapping("/relational-prd-query/libros/consultas/fechalectura")
     ResponseEntity<List<LibroDTO>> getLibroByFechaLectura(@RequestParam("fechaInicio")LocalDate fechaInicio, @RequestParam("fechaFin")LocalDate fechaFin);
 
 
