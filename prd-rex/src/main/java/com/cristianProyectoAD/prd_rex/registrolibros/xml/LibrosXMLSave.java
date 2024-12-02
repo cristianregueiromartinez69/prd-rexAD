@@ -11,23 +11,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Clase para manejar la lógica de los elementos guardados en listas para escribir en xml
- *
- * @author cristian
- * @version 1.0
- */
 @Component
 public class LibrosXMLSave {
 
 
-    /**
-     * Metodo para guardar datos en fichero xml
-     *
-     * @param librosRegistroDTO el libro ha guardar
-     * @param filePath          la ruta donde estará el archivo
-     * @throws IOException lanzamos una excepcion que será recogida en el controlador
-     */
+
     public void guardarLibroEnXML(LibroDTO librosRegistroDTO, String filePath) throws IOException, XMLStreamException{
 
         List<LibroDTO> libroDTOList = readXmlFile(filePath);
@@ -91,19 +79,9 @@ public class LibrosXMLSave {
         xmlStreamWriter.writeCharacters("\n");
         xmlStreamWriter.writeStartElement("libros");
 
-        /**
-         * bucle for de 2 vueltas ya que nos piden escribirlo 2 veces
-         * será tan largo como longitud tenga el objeto array autores
-         */
+
         for(int i = 0; i < librosList.size(); i++){
 
-            /**
-             * Explicación de los métodos
-             * writeCharacters -> va a escribir algo dentro de un tag
-             * writeStartElement -> nombre de la etiqueta y la inicia
-             * writeAttribute -> atributo con valor de la etiqueta anteriormente creada
-             * writeEndElement -> cerramos la ultima etiqueta abierta
-             */
             xmlStreamWriter.writeCharacters("\n");
             xmlStreamWriter.writeStartElement("libro");
             xmlStreamWriter.writeCharacters("\n");
