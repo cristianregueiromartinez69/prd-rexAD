@@ -10,7 +10,9 @@ import java.util.List;
 
 /**
  * Cliente Feign para interactuar con el servicio de consulta y almacenamiento de libros en una base de datos no relacional (MongoDB).
- * Utiliza la URL base <a href="http://localhost:8083">...</a> para la comunicación con el servicio.
+ * Utiliza la URL base <a href="http://localhost:8083">http://localhost:8083</a> para la comunicación con el servicio.
+ * Los métodos proporcionan operaciones para guardar libros, consultar por ISBN, autor, nombre y fecha de registro.
+ *
  * @author cristian
  * @version 1.0
  */
@@ -36,12 +38,31 @@ public interface MongoPrdClientService {
     @GetMapping("/nonrelational-prd-query/libros/consultas/isbn{isbn}")
     ResponseEntity<LibroDTO> getLibroByIsbn(@PathVariable("isbn") String isbn);
 
+    /**
+     * Obtiene una lista de libros desde la base de datos MongoDB utilizando el nombre del autor.
+     *
+     * @param autor El nombre del autor de los libros a consultar.
+     * @return ResponseEntity que contiene una lista de libros encontrados en formato LibroDTO o un código de error si no se encuentran libros.
+     */
     @GetMapping("/nonrelational-prd-query/libros/consultas/autor{autor}")
     ResponseEntity<List<LibroDTO>> getLibroByAutor(@PathVariable("autor") String autor);
 
+    /**
+     * Obtiene una lista de libros desde la base de datos MongoDB utilizando el nombre del libro.
+     *
+     * @param nombre El nombre del libro a consultar.
+     * @return ResponseEntity que contiene una lista de libros encontrados en formato LibroDTO o un código de error si no se encuentran libros.
+     */
     @GetMapping("/nonrelational-prd-query/libros/consultas/nombre{nombre}")
     ResponseEntity<List<LibroDTO>> getLibroByNombre(@PathVariable("nombre") String nombre);
 
+    /**
+     * Obtiene una lista de libros desde la base de datos MongoDB dentro de un rango de fechas de registro.
+     *
+     * @param fechaInicio La fecha de inicio del rango de búsqueda.
+     * @param fechaFin La fecha de fin del rango de búsqueda.
+     * @return ResponseEntity que contiene una lista de libros encontrados en formato LibroDTO o un código de error si no se encuentran libros en el rango de fechas.
+     */
     @GetMapping("/nonrelational-prd-query/libros/consultas/fecharegistro")
     ResponseEntity<List<LibroDTO>> getLibroByFechaRegistro(@RequestParam("fechaInicio") LocalDate fechaInicio, @RequestParam("fechaFin") LocalDate fechaFin);
 

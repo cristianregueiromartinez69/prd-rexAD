@@ -11,11 +11,23 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que gestiona la lectura y escritura de datos de libros en formato XML.
+ * @author cristian
+ * @version 1.0
+ */
 @Component
 public class LibrosXMLSave {
 
 
-
+    /**
+     * Guarda un libro en un archivo XML, verificando previamente si el ISBN ya existe.
+     *
+     * @param librosRegistroDTO objeto que representa el libro a guardar.
+     * @param filePath ruta del archivo XML.
+     * @throws IOException si ocurre un error durante la lectura o escritura del archivo.
+     * @throws XMLStreamException si ocurre un error al procesar el XML.
+     */
     public void guardarLibroEnXML(LibroDTO librosRegistroDTO, String filePath) throws IOException, XMLStreamException{
 
         List<LibroDTO> libroDTOList = readXmlFile(filePath);
@@ -25,6 +37,14 @@ public class LibrosXMLSave {
         }
     }
 
+    /**
+     * Lee un archivo XML y convierte los datos en una lista de objetos {@link LibroDTO}.
+     *
+     * @param path ruta del archivo XML a leer.
+     * @return una lista de libros leída del archivo.
+     * @throws IOException si ocurre un error al abrir el archivo.
+     * @throws XMLStreamException si ocurre un error al procesar el XML.
+     */
     public List<LibroDTO> readXmlFile(String path) throws IOException, XMLStreamException {
         List<LibroDTO> librosList = new ArrayList<>();
         String elementoActual = "";
@@ -71,6 +91,14 @@ public class LibrosXMLSave {
 
     }
 
+    /**
+     * Escribe una lista de libros en un archivo XML.
+     *
+     * @param librosList lista de libros a escribir.
+     * @param filePath ruta del archivo XML.
+     * @throws IOException si ocurre un error al abrir o escribir el archivo.
+     * @throws XMLStreamException si ocurre un error al procesar el XML.
+     */
     public void writeXmlFile(List<LibroDTO> librosList, String filePath) throws IOException, XMLStreamException {
         XMLOutputFactory xmlOutputFactory = XMLOutputFactory.newInstance();
 
@@ -80,29 +108,29 @@ public class LibrosXMLSave {
         xmlStreamWriter.writeStartElement("libros");
 
 
-        for(int i = 0; i < librosList.size(); i++){
+        for (LibroDTO libroDTO : librosList) {
 
             xmlStreamWriter.writeCharacters("\n");
             xmlStreamWriter.writeStartElement("libro");
             xmlStreamWriter.writeCharacters("\n");
             xmlStreamWriter.writeStartElement("isbn");
-            xmlStreamWriter.writeCharacters(librosList.get(i).getIsbn());
+            xmlStreamWriter.writeCharacters(libroDTO.getIsbn());
             xmlStreamWriter.writeEndElement();
             xmlStreamWriter.writeCharacters("\n");
             xmlStreamWriter.writeStartElement("autor");
-            xmlStreamWriter.writeCharacters(librosList.get(i).getAutor());
+            xmlStreamWriter.writeCharacters(libroDTO.getAutor());
             xmlStreamWriter.writeEndElement();
             xmlStreamWriter.writeCharacters("\n");
             xmlStreamWriter.writeStartElement("nombre");
-            xmlStreamWriter.writeCharacters(librosList.get(i).getNombre());
+            xmlStreamWriter.writeCharacters(libroDTO.getNombre());
             xmlStreamWriter.writeEndElement();
             xmlStreamWriter.writeCharacters("\n");
             xmlStreamWriter.writeStartElement("fechaLectura");
-            xmlStreamWriter.writeCharacters(librosList.get(i).getFechaLectura().toString());
+            xmlStreamWriter.writeCharacters(libroDTO.getFechaLectura().toString());
             xmlStreamWriter.writeEndElement();
             xmlStreamWriter.writeCharacters("\n");
             xmlStreamWriter.writeStartElement("fechaRegistro");
-            xmlStreamWriter.writeCharacters(librosList.get(i).getFechaRegistro().toString());
+            xmlStreamWriter.writeCharacters(libroDTO.getFechaRegistro().toString());
             xmlStreamWriter.writeEndElement();
             xmlStreamWriter.writeCharacters("\n");
             xmlStreamWriter.writeEndElement();
@@ -113,6 +141,13 @@ public class LibrosXMLSave {
         xmlStreamWriter.close();
     }
 
+    /**
+     * Verifica si un libro ya existe en la lista basándose en el ISBN.
+     *
+     * @param libroDTO libro a verificar.
+     * @param libroDTOList lista de libros existente.
+     * @return true si el ISBN no está repetido; false en caso contrario.
+     */
     public boolean checkIfISbnISRepeat(LibroDTO libroDTO, List<LibroDTO> libroDTOList){
         for(LibroDTO libroDTO1 : libroDTOList){
             if(libroDTO1.getIsbn().equals(libroDTO.getIsbn())){

@@ -12,7 +12,6 @@ public class PrdRexApplication {
 		SpringApplication.run(PrdRexApplication.class, args);
 	}
 
-	//TODO: preparar a prd-rex para recibir la informacion de fechas de registro de con-external
 
 
 }
