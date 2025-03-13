@@ -152,4 +152,11 @@
 <fechaRegistro>2024-11-24</fechaRegistro>
 </libro>
 
+<libro>
+<isbn>978-000-000-022</isbn>
+<autor>autor desconocido</autor>
+<nombre>el libro de la selva</nombre>
+<fechaLectura>2025-03-13</fechaLectura>
+<fechaRegistro>2025-03-13</fechaRegistro>
+</libro>
 </libros>

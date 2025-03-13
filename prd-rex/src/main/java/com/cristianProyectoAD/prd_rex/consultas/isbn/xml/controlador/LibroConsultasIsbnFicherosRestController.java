@@ -40,9 +40,8 @@ public class LibroConsultasIsbnFicherosRestController {
     @GetMapping("isbn/{isbn}")
     public ResponseEntity<LibroDTO> getLibroByIsbnFromXml(@PathVariable String isbn) {
         try {
-            String pathWindows = "C:/Users/crm23/Downloads/prd-rex/prd-rex/libros.xml";
-            String pathLinux = "/home/dam/Desktop/DAM2/Acceso a Datos/prd-rexAD/prd-rex/libros.xml";
-            LibroDTO libro = libroIsbnServiceFicheros.getLibroByIsbn(isbn, pathLinux);
+            String pathWindows = "prd-rex/libros.xml";
+            LibroDTO libro = libroIsbnServiceFicheros.getLibroByIsbn(isbn, pathWindows);
             return ResponseEntity.ok(libro);
         } catch (IOException | XMLStreamException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
