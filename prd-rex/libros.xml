@@ -159,4 +159,12 @@
 <fechaLectura>2025-03-13</fechaLectura>
 <fechaRegistro>2025-03-13</fechaRegistro>
 </libro>
+
+<libro>
+<isbn>978-000-000-023</isbn>
+<autor>Stepthen king</autor>
+<nombre>Si te gusta la oscuridad</nombre>
+<fechaLectura>2025-03-13</fechaLectura>
+<fechaRegistro>2025-03-13</fechaRegistro>
+</libro>
 </libros>

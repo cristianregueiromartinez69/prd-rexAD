@@ -66,5 +66,13 @@ public interface MongoPrdClientService {
     @GetMapping("/nonrelational-prd-query/libros/consultas/fecharegistro")
     ResponseEntity<List<LibroDTO>> getLibroByFechaRegistro(@RequestParam("fechaInicio") LocalDate fechaInicio, @RequestParam("fechaFin") LocalDate fechaFin);
 
+    /**
+     * Metodo llamando al servicio de la base de mongo para realizar consultas entre fechas de lectura
+     * @param fechaInicio la fecha de inicio
+     * @param fechaFin la fecha de fin
+     * @return la lista de libros entre esas fechas
+     */
+    @GetMapping("/nonrelational-prd-query/libros/consultas/fechalectura")
+    ResponseEntity<List<LibroDTO>> getLirboByFechaLectura(@RequestParam("fechaInicio") LocalDate fechaInicio, @RequestParam("fechaFin") LocalDate fechaFin);
 
 }
