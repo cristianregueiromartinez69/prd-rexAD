@@ -16,7 +16,7 @@ import java.util.List;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/prd-rex/libros/consulta/postgresSQL/")
+@RequestMapping("/prd-rex/libros/consulta/postgresSQL")
 public class LibroNombrePostgresRestController {
 
     /** Servicio que proporciona la lógica para las consultas de nombres de libros en PostgreSQL. */
@@ -38,7 +38,7 @@ public class LibroNombrePostgresRestController {
      * @return una respuesta HTTP que contiene una lista de objetos {@link LibroDTO} correspondientes
      *         a los libros encontrados.
      */
-    @GetMapping("nombre{nombre}")
+    @GetMapping("/nombre/{nombre}")
     public ResponseEntity<List<LibroDTO>> getLibroByNombre(@PathVariable String nombre) {
         return libroNombreServicePostgres.getLibrosPostgresByNombre(nombre);
     }

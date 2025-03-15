@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/prd-rex/libros/consulta/postresSQL/")
+@RequestMapping("/prd-rex/libros/consulta/postresSQL")
 public class LibroConsultaIsbnPostgresSQLRestController {
 
     private final LibroIsbnServicePostgres libroIsbnService;
@@ -32,7 +32,7 @@ public class LibroConsultaIsbnPostgresSQLRestController {
      * @param isbn El ISBN del libro.
      * @return ResponseEntity con los datos del libro si se encuentra.
      */
-    @GetMapping("isbn/{isbn}")
+    @GetMapping("/isbn/{isbn}")
     public ResponseEntity<LibroDTO> getLibroByIsbn(@PathVariable("isbn") String isbn) {
         return libroIsbnService.getLibroByIsbnPostgres(isbn);
     }

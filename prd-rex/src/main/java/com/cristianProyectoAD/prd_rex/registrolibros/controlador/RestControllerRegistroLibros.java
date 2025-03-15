@@ -42,7 +42,7 @@ public class RestControllerRegistroLibros {
     @PostMapping("/registro")
     public ResponseEntity<String> registroLibrosBasesDatos(@RequestBody LibroDTO libroDTO){
         try{
-            librosXMLSave.guardarLibroEnXML(libroDTO, "C:/Users/crm23/Downloads/prd-rex/prd-rex/libros.xml");
+            librosXMLSave.guardarLibroEnXML(libroDTO, "prd-rex/libros.xml");
         } catch (IOException | XMLStreamException e) {
             return ResponseEntity.badRequest().body("no se pudo guardar el libro en el sistema de ficheros");
         }

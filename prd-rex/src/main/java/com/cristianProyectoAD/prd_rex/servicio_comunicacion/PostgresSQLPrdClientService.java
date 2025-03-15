@@ -32,7 +32,7 @@ public interface PostgresSQLPrdClientService {
      * @param isbn El ISBN del libro a consultar.
      * @return ResponseEntity que contiene el libro encontrado en formato LibroDTO o un código de error si no se encuentra el libro.
      */
-    @GetMapping("/relational-prd-query/libros/consultas/isbn{isbn}")
+    @GetMapping("/relational-prd-query/libros/consultas/isbn/{isbn}")
     ResponseEntity<LibroDTO> getLibroByIsbn(@PathVariable("isbn") String isbn);
 
     /**
@@ -41,7 +41,7 @@ public interface PostgresSQLPrdClientService {
      * @param autor El nombre del autor de los libros a consultar.
      * @return ResponseEntity que contiene una lista de libros encontrados en formato LibroDTO.
      */
-    @GetMapping("/relational-prd-query/libros/consultas/autor{autor}")
+    @GetMapping("/relational-prd-query/libros/consultas/autor/{autor}")
     ResponseEntity<List<LibroDTO>> getLibroByAutor(@PathVariable("autor") String autor);
 
     /**
@@ -50,7 +50,7 @@ public interface PostgresSQLPrdClientService {
      * @param nombre El nombre del libro a consultar.
      * @return ResponseEntity que contiene una lista de libros encontrados en formato LibroDTO o un código de error si no se encuentran libros.
      */
-    @GetMapping("/relational-prd-query/libros/consultas/nombre{nombre}")
+    @GetMapping("/relational-prd-query/libros/consultas/nombre/{nombre}")
     ResponseEntity<List<LibroDTO>> getLibroByNombre(@PathVariable("nombre") String nombre);
 
     /**
@@ -62,6 +62,16 @@ public interface PostgresSQLPrdClientService {
      */
     @GetMapping("/relational-prd-query/libros/consultas/fecharegistro")
     ResponseEntity<List<LibroDTO>> getLibroByFechaRegistro(@RequestParam("fechaInicio")LocalDate fechaInicio, @RequestParam("fechaFin")LocalDate fechaFin);
+
+    /**
+     * Obtiene una lista de libros desde la base de datos relacional dentro de un rango de fechas de lectura.
+     *
+     * @param fechaInicio La fecha de inicio del rango de búsqueda.
+     * @param fechaFin La fecha de fin del rango de búsqueda.
+     * @return ResponseEntity que contiene una lista de libros encontrados en formato LibroDTO o un código de error si no se encuentran libros en el rango de fechas.
+     */
+    @GetMapping("/relational-prd-query/libros/consultas/fechalectura")
+    ResponseEntity<List<LibroDTO>> getLibroByFechaLectura(@RequestParam("fechaInicio")LocalDate fechaInicio, @RequestParam("fechaFin")LocalDate fechaFin);
 
 
 

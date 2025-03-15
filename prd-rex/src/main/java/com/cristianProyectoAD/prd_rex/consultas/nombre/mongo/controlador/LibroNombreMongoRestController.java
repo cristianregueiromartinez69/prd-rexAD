@@ -14,7 +14,7 @@ import java.util.List;
  * basadas en su nombre.
  */
 @RestController
-@RequestMapping("/prd-rex/libros/consulta/mongoDB/")
+@RequestMapping("/prd-rex/libros/consulta/mongoDB")
 public class LibroNombreMongoRestController {
 
     /** Servicio encargado de realizar consultas en MongoDB relacionadas con los nombres de libros. */
@@ -36,7 +36,7 @@ public class LibroNombreMongoRestController {
      * @return una respuesta HTTP que contiene una lista de objetos {@link LibroDTO} correspondientes
      *         a los libros encontrados.
      */
-    @GetMapping("nombre{nombre}")
+    @GetMapping("/nombre/{nombre}")
     public ResponseEntity<List<LibroDTO>> getLibroByNombre(@PathVariable String nombre) {
         return libroNombreServiceMongo.getLibroNombreMongo(nombre);
     }

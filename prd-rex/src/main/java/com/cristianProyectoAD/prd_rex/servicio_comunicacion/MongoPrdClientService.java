@@ -35,7 +35,7 @@ public interface MongoPrdClientService {
      * @param isbn El ISBN del libro a consultar.
      * @return ResponseEntity que contiene el libro encontrado en formato LibroDTO o un código de error si no se encuentra el libro.
      */
-    @GetMapping("/nonrelational-prd-query/libros/consultas/isbn{isbn}")
+    @GetMapping("/nonrelational-prd-query/libros/consultas/isbn/{isbn}")
     ResponseEntity<LibroDTO> getLibroByIsbn(@PathVariable("isbn") String isbn);
 
     /**
@@ -44,7 +44,7 @@ public interface MongoPrdClientService {
      * @param autor El nombre del autor de los libros a consultar.
      * @return ResponseEntity que contiene una lista de libros encontrados en formato LibroDTO o un código de error si no se encuentran libros.
      */
-    @GetMapping("/nonrelational-prd-query/libros/consultas/autor{autor}")
+    @GetMapping("/nonrelational-prd-query/libros/consultas/autor/{autor}")
     ResponseEntity<List<LibroDTO>> getLibroByAutor(@PathVariable("autor") String autor);
 
     /**
@@ -53,7 +53,7 @@ public interface MongoPrdClientService {
      * @param nombre El nombre del libro a consultar.
      * @return ResponseEntity que contiene una lista de libros encontrados en formato LibroDTO o un código de error si no se encuentran libros.
      */
-    @GetMapping("/nonrelational-prd-query/libros/consultas/nombre{nombre}")
+    @GetMapping("/nonrelational-prd-query/libros/consultas/nombre/{nombre}")
     ResponseEntity<List<LibroDTO>> getLibroByNombre(@PathVariable("nombre") String nombre);
 
     /**
@@ -66,5 +66,13 @@ public interface MongoPrdClientService {
     @GetMapping("/nonrelational-prd-query/libros/consultas/fecharegistro")
     ResponseEntity<List<LibroDTO>> getLibroByFechaRegistro(@RequestParam("fechaInicio") LocalDate fechaInicio, @RequestParam("fechaFin") LocalDate fechaFin);
 
+    /**
+     * Metodo llamando al servicio de la base de mongo para realizar consultas entre fechas de lectura
+     * @param fechaInicio la fecha de inicio
+     * @param fechaFin la fecha de fin
+     * @return la lista de libros entre esas fechas
+     */
+    @GetMapping("/nonrelational-prd-query/libros/consultas/fechalectura")
+    ResponseEntity<List<LibroDTO>> getLirboByFechaLectura(@RequestParam("fechaInicio") LocalDate fechaInicio, @RequestParam("fechaFin") LocalDate fechaFin);
 
 }

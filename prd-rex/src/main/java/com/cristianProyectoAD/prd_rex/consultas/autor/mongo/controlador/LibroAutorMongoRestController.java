@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/prd-rex/libros/consulta/mongoDB/")
+@RequestMapping("/prd-rex/libros/consulta/mongoDB")
 public class LibroAutorMongoRestController {
 
     private final LibroAutorServiceMongo libroAutorServiceMongo;
@@ -32,7 +32,7 @@ public class LibroAutorMongoRestController {
      * @param autor El nombre del autor.
      * @return ResponseEntity con la lista de libros del autor si se encuentran.
      */
-    @GetMapping("autor{autor}")
+    @GetMapping("/autor/{autor}")
     public ResponseEntity<List<LibroDTO>> getLibrosMongoByAutor(@PathVariable String autor) {
         return libroAutorServiceMongo.getLibroByAutor(autor);
     }

@@ -17,7 +17,7 @@ import java.util.List;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/prd-rex/libros/consulta/postgresSQL/")
+@RequestMapping("/prd-rex/libros/consulta/postgresSQL")
 public class LibroAutorPostgresRestController {
 
     private final LibroAutorServicePostgres libroAutorServicePostgres;
@@ -37,7 +37,7 @@ public class LibroAutorPostgresRestController {
      * @param autor El nombre del autor.
      * @return ResponseEntity con la lista de libros del autor si se encuentran.
      */
-    @GetMapping("autor{autor}")
+    @GetMapping("/autor/{autor}")
     public ResponseEntity<List<LibroDTO>> getLibroPostgresByAutor(@PathVariable String autor) {
         return libroAutorServicePostgres.getLibroByAutor(autor);
     }
